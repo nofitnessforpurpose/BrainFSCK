@@ -11,7 +11,7 @@ This <a href="https://en.wikipedia.org/wiki/Psion_Organiser"> Organiser II</a> <
 <BR>
 
 [![Organiser](https://img.shields.io/badge/gadget-Organiser_II-blueviolet.svg?%3D&style=flat-square)](https://en.wikipedia.org/wiki/Psion_Organiser)
-[![GitHub License](https://img.shields.io/github/license/nofitnessforpurpose/BrainFCSK?style=flat-square)](https://github.com/nofitnessforpurpose/BrainFSCK/blob/main/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/nofitnessforpurpose/BrainFSCK?style=flat-square)](https://github.com/nofitnessforpurpose/BrainFSCK/blob/main/LICENSE)
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat-square)](https://github.com/nofitnessforpurpose/BRAINFSCK/graphs/commit-activity)
 ![GitHub repo size](https://img.shields.io/github/repo-size/nofitnessforpurpose/BrainFSCK?style=flat-square)
 
