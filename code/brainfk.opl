@@ -1,0 +1,39 @@
+brainfk:
+
+REM Prog : BrainFK
+REM Uses : bfsck
+REM Rev  : 0.1
+REM Model: CM, XP, LA, LZ, LZ64
+REM Auth : NFfP
+REM Date : 2025/08/20
+
+local cd$(255)
+
+rem cd$ = ",.-------------(,.-------------)" : REM Keys printed until EXE
+
+REM Print "Hello World!" and wait for a key press
+REM attr: https://github.com/saulpw
+cd$ = cd$ + "+++++ +++++" : REM             (initialize counter (cell #0) to 10)
+cd$ = cd$ + "[" : REM                       (use loop to set the next four cells to 70/100/30/10)
+cd$ = cd$ + "  > +++++ ++" : REM            (    add  7 to cell #1)
+cd$ = cd$ + "  > +++++ +++++" : REM         (    add 10 to cell #2 )
+cd$ = cd$ + "  > +++" : REM                 (    add  3 to cell #3)
+cd$ = cd$ + "  > +" : REM                   (    add  1 to cell #4)
+cd$ = cd$ + "  <<<< -" : REM                (    decrement counter (cell #0))
+cd$ = cd$ + "]" : REM                   
+cd$ = cd$ + "> ++ ." : REM                  (print 'H')
+cd$ = cd$ + "> + ." : REM                   (print 'e')
+cd$ = cd$ + "+++++ ++ ." : REM              (print 'l')
+cd$ = cd$ + "." : REM                       (print 'l')
+cd$ = cd$ + "+++ ." : REM                   (print 'o')
+cd$ = cd$ + "> ++ ." : REM                  (print ' ')
+cd$ = cd$ + "<< +++++ +++++ +++++ ." : REM  (print 'W')
+cd$ = cd$ + "> ." : REM                     (print 'o')
+cd$ = cd$ + "+++ ." : REM                   (print 'r')
+cd$ = cd$ + "----- - ." : REM               (print 'l')
+cd$ = cd$ + "----- --- ." : REM             (print 'd')
+cd$ = cd$ + "> + ." : REM                   (print bang)
+cd$ = cd$ + "> ." : REM                     (print '\n')
+cd$ = cd$ + "," : REM                       wait for a key press
+
+bfsck:(cd$)
