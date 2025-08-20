@@ -1,0 +1,113 @@
+bfsck:(code$)
+REM Organiser II BrainFSCK Interpreter
+
+REM Prog : BFSCK
+REM Rev  : 0.1
+REM Model: CM, XP, LA, LZ, LZ64
+REM Auth : NFfP
+REM Date : 2025/08/20
+
+LOCAL tp$(255)   : REM tape (255 cells, indexes 0..254)
+LOCAL st$(50)    : REM stack for loop positions
+LOCAL cd$(255)   : REM code string
+LOCAL pc%, pt%, sp%, ch%, dp%, tp%, skip%
+
+
+cd$ = code$ : REM Copy input code to local variable
+REM Initialise tape and stack with zeros FIRST (strings may relocate)
+tp$ = REPT$(CHR$(0),255)
+st$ = REPT$(CHR$(0),50)
+
+tp% = ADDR(tp$)          : REM base address of tape (length byte at tp%+0)
+pc% = 1                  : REM 1-based index into cd$
+pt% = 0                  : REM tape pointer (0..254)
+sp% = 0                  : REM stack pointer (0..49)
+
+WHILE pc% <= LEN(cd$)
+  ch% = PEEKB(ADDR(cd$) + pc%) : REM chars start at ADDR+1, pc% starts at 1
+  skip% = 0
+
+  REM '+'
+  IF ch% = 43
+    POKEB tp% + 1 + pt%, 255 AND (PEEKB(tp% + 1 + pt%) + 1)
+  ENDIF
+
+  REM '-'
+  IF ch% = 45
+    POKEB tp% + 1 + pt%, 255 AND (PEEKB(tp% + 1 + pt%) - 1)
+  ENDIF
+
+  REM '>'
+  IF ch% = 62
+    pt% = pt% + 1
+    IF pt% >= 255
+      pt% = 0
+    ENDIF
+  ENDIF
+
+  REM '<'
+  IF ch% = 60
+    pt% = pt% - 1
+    IF pt% < 0
+      pt% = 254
+    ENDIF
+  ENDIF
+
+  REM '.'
+  IF ch% = 46
+    PRINT CHR$(PEEKB(tp% + 1 + pt%));
+  ENDIF
+
+  REM ','
+  IF ch% = 44
+    POKEB tp% + 1 + pt%, GET
+    REM PRINT PEEKB(tp% + 1 + pt%)
+  ENDIF
+
+  REM '[' or '(' : loop start
+  IF ch% = 91 OR ch% = 40
+    IF PEEKB(tp% + 1 + pt%) = 0
+      REM skip ahead to matching ] or )
+      dp% = 1
+      WHILE dp% > 0
+        pc% = pc% + 1
+        IF pc% > LEN(cd$)
+          AT 1,4: PRINT "Unmatched '(' or '['"; : GET : RETURN
+        ENDIF
+        ch% = PEEKB(ADDR(cd$) + pc%)
+        IF ch% = 91 OR ch% = 40
+          dp% = dp% + 1
+        ENDIF
+        IF ch% = 93 OR ch% = 41
+          dp% = dp% - 1
+        ENDIF
+      ENDWH
+      skip% = 1 : REM landed on the matching ]/); do NOT process it now
+    ELSE
+      sp% = sp% + 1
+      IF sp% > 49
+        AT 1,2: PRINT "Stack overflow"; : GET : RETURN
+      ENDIF
+      POKEB ADDR(st$) + 1 + sp%, pc%
+    ENDIF
+  ENDIF
+
+  REM ']' or ')' : loop end (only if we didn't just skip)
+  IF skip% = 0
+    IF ch% = 93 OR ch% = 41
+      IF PEEKB(tp% + 1 + pt%) <> 0
+        pc% = PEEKB(ADDR(st$) + 1 + sp%)
+      ELSE
+        IF sp% > 0
+          sp% = sp% - 1
+        ELSE
+          AT 1,2: PRINT "Stack underflow"; : GET : RETURN
+        ENDIF
+      ENDIF
+    ENDIF
+  ENDIF
+
+  pc% = pc% + 1
+ENDWH
+
+
