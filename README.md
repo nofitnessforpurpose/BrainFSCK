@@ -23,8 +23,12 @@ In the case of the native POPL interpreted version of BrainFSCK the BrainFSCK co
 Note
 The interpreter can be stored on a data pack, as the native POPL interpreter  program is compiled code will be loaded into RAM. 
 
+<BR>
+
 ## Use Case
 Investigation into operation of micro interpreters, edge case software.
+
+<BR>
 
 ## Questions / Discussion
 See <a target="_blank" rel="noopener noreferrer" href="https://www.organiser2.com/"> Organiser 2 Software </a> forum, though see note below first.
