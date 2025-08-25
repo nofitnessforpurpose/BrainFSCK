@@ -17,8 +17,14 @@ This <a href="https://en.wikipedia.org/wiki/Psion_Organiser"> Organiser II</a> <
 
 <br>  
 
+## Discussion
+In the case of the native POPL interpreted version of BrainFSCK the BrainFSCK code can, unlike POPL, be run from the data pack. i.e. it does not need to be loaded into RAM, only the interpreter needs to be loaded into RAM. As a result the interpreter might be considered relatively memory efficient.
+
+Note
+The interpreter can be stored on a data pack, as the native POPL interpreter  program is compiled code will be loaded into RAM. 
+
 ## Use Case
-Investigation into operation of micro interpreters.
+Investigation into operation of micro interpreters, edge case software.
 
 ## Questions / Discussion
 See <a target="_blank" rel="noopener noreferrer" href="https://www.organiser2.com/"> Organiser 2 Software </a> forum, though see note below first.
