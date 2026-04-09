@@ -47,6 +47,25 @@ This accommodation is made because entering the native square bracket characters
 
 <BR>  
 
+### BrainFSK In Action
+What’s happening in the animation:  
+
+The Tape: The row of numbered boxes represents the memory cells.  
+
+The Green Cell: This is where the Data Pointer is currently looking.  
+
+The Title: Shows the current command being executed (in brackets) and the symbol it corresponds to.  
+
+The Logic: You can see Cell 0 act as a "counter." The loop continues as long as Cell 0 is not zero, effectively "moving" and multiplying the value into Cell 1.  
+
+By the end of this short program, the machine has successfully calculated 2×3=6.  
+
+<div align="center">
+  <div style="display: flex; align-items: flex-start;">
+    <img src="https://github.com/nofitnessforpurpose/BrainFSCK/blob/main/images/Code_Generated_Image.gif" width="400px" alt="NotFitForPurpose Image copyright (c) 08 Feb 2026 nofitnessforpurpose All Rights Reserved">
+  </div>
+</div>
+<BR>
 
 ## Questions / Discussion
 See <a target="_blank" rel="noopener noreferrer" href="https://www.organiser2.com/"> Organiser 2 Software </a> forum, though see note below first.
