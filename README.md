@@ -54,7 +54,7 @@ The Tape: The row of numbered boxes represents the memory cells.
 
 The Green Cell: This is where the Data Pointer is currently looking.  
 
-The Title: Shows the current command being executed (in brackets) and the symbol it corresponds to.  
+The Title: Shows the current command being executed (in red) and the symbol it corresponds to.  
 
 The Logic: You can see Cell 0 act as a "counter." The loop continues as long as Cell 0 is not zero, effectively "moving" and multiplying the value into Cell 1.  
 
