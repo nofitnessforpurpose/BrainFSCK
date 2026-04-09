@@ -30,6 +30,24 @@ Investigation into operation of micro interpreters, edge case software.
 
 <BR>
 
+The CODE folder contains two OPL files:  
+bfsk.opl: The core interpreter. It processes a BrainFSCK string and executes the corresponding commands.  
+brainfk.opl: A demonstration script. It shows how to construct a BrainFSCK command sequence and pass it to the interpreter.  
+
+### Technical Details  
+Flexibility: The system supports various command sequences, allowing for a wide range of programs.  
+Optimization: For developers looking for higher performance, the bfsk.opl code can be modified to operate directly on a specific area of memory rather than using standard string manipulation.
+
+### Getting Started
+To see the interpreter in action, place the two proceedures in the A: storage or data pack locations. Translate them via the PROG menu and run brainfk.opl. This will load the sample program into a string and pass it to the bfsk procedure for execution.  
+
+Syntax Note: Character Support
+In this implementation, the standard Brainfsk loop characters [ and ] are aliased to ( and ).
+This accommodation is made because entering the native square bracket characters in the OPL editor on certain Psion hardware platforms can be difficult. The interpreter accepts both the traditional symbols and their rounded counterparts interchangeably.
+
+<BR>  
+
+
 ## Questions / Discussion
 See <a target="_blank" rel="noopener noreferrer" href="https://www.organiser2.com/"> Organiser 2 Software </a> forum, though see note below first.
 
